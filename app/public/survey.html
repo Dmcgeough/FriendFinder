@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+    <title>FriendFinder</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbtron">
+            <h1 class="text-center">FriendFinder</h1>
+            <hr>
+            <h2 class="text-center">Survey</h2>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Survey Questions</h4>
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="/api/new" method="post">
+                        <div class="form-group">
+                            <label for>Full Name (Required)</label>
+                            <input type="text" class="form-control" name="reserve_name">
+                        </div>
+                        <div class="form-group">
+                            <label for>Link to Photo (Required)</label>
+                            <input type="text" class="form-control" name="reserve_phone">
+                        </div>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <form action="/action_page.php">
+  <select name="Question 1">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+  <button type="submit" class="btn btn-primary submit">Submit</button>
+</form>
+         
+
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
+</html
+
