@@ -61,5 +61,21 @@ var friends = [{
       2,
       1
     ]
-}];
+},
+{
+  "name":"Jennifer",
+  "photo":"http://geeksnation.org/wp-content/uploads/2016/10/Most-Beautiful-Girl.jpg",
+  "scores":[
+      1,
+      2,
+      5,
+      3,
+      3,
+      4,
+      1,
+      4,
+      2,
+      5
+    ]
+},];
 module.exports = friends;
