@@ -39,8 +39,80 @@
         </div>
     </div>
     <hr>
-    <form action="/action_page.php">
-  <select name="Question 1">
+    <form>
+  <select name="I am comfortable around large groups">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="I am afraid of clowns">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="I am a macho macho man">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="Books are for weaklings">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="I lika do da cha cha">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="the 44 magnum is a mans weapon">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="God is real">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="Climate Change is fake">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="BDSM is strangely interesting">
+    <option value="1">1 (strongly disagree)</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5 (strongly agree)</option>
+  </select>
+  <br><br>
+   <select name="Movies are awesome">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -55,5 +127,13 @@
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/app.js"></script>
-</html
+ var object = {
+        name: $("#name").val(),
+        photo: ...,
+        scores: [
+        $("#Q1".val(), ${})]
+    }
+    $.post("/api/friends", object);
+   
+</html>
 

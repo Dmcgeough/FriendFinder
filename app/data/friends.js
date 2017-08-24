@@ -1,1 +1,65 @@
-var data = [];
+var friends = [{
+  "name":"Ahmed",
+  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "scores":[
+      5,
+      1,
+      4,
+      4,
+      5,
+      1,
+      2,
+      5,
+      4,
+      1
+    ]
+},
+{
+  "name":"Jack",
+  "photo":"https://i.ytimg.com/vi/0f1VVhdKaXA/maxresdefault.jpg",
+  "scores":[
+      5,
+      2,
+      3,
+      4,
+      5,
+      1,
+      1,
+      5,
+      4,
+      5
+    ]
+},
+{
+  "name":"Jeff",
+  "photo":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sigmundur_Dav%C3%AD%C3%B0_Gunnlaugsson_2016_%28cropped_resized%29.jpg/170px-Sigmundur_Dav%C3%AD%C3%B0_Gunnlaugsson_2016_%28cropped_resized%29.jpg",
+  "scores":[
+      2,
+      3,
+      4,
+      5,
+      1,
+      3,
+      2,
+      5,
+      4,
+      1
+    ]
+},
+{
+  "name":"Mark",
+  "photo":"http://static6.businessinsider.com/image/5609b28f9dd7cc0f008bdadd/philly-mayor-media-scared-the-s-out-of-people-ahead-of-papal-visit.jpg",
+  "scores":[
+      1,
+      5,
+      5,
+      1,
+      2,
+      3,
+      3,
+      1,
+      2,
+      1
+    ]
+}];
+module.exports = friends;
