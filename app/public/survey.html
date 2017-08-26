@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
     <title>FriendFinder</title>
 </head>
 <body>
@@ -26,11 +27,11 @@
                     <form role="form" action="/api/new" method="post">
                         <div class="form-group">
                             <label for>Full Name (Required)</label>
-                            <input type="text" class="form-control" name="reserve_name">
+                            <input id="name" type="text" class="form-control" name="reserve_name">
                         </div>
                         <div class="form-group">
                             <label for>Link to Photo (Required)</label>
-                            <input type="text" class="form-control" name="reserve_phone">
+                            <input id="photo" type="text" class="form-control" name="reserve_phone">
                         </div>
                     
                     </form>
@@ -41,7 +42,7 @@
     <hr>
     <form>
     <h4>I am comfortable in large crowds of people.</h4>
-  <select name="Q1">
+  <select id="Q1">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -50,7 +51,7 @@
   </select>
   <br><br>
   <h4>I am a natural leader.</h4>
-   <select name="Q2">
+   <select id="Q2">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -59,7 +60,7 @@
   </select>
   <br><br>
   <h4>I am able to work well in a team environment</h4>
-   <select name="Q3".>
+   <select id="Q3".>
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -68,7 +69,7 @@
   </select>
   <br><br>
   <h4>I am more creative than my peers.</h4>
-   <select name="Q4">
+   <select id="Q4">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -77,7 +78,7 @@
   </select>
   <br><br>
   <h4>I want to plan everything.</h4>
-   <select name="Q5">
+   <select id="Q5">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -86,7 +87,7 @@
   </select>
   <br><br>
   <h4>I am very opinionated and voice my beliefs openly.</h4>
-   <select name="Q6">
+   <select id="Q6">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -95,7 +96,7 @@
   </select>
   <br><br>
   <h4>I avoid conflict with others at all costs.</h4>
-   <select name="Q7">
+   <select id="Q7">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -104,7 +105,7 @@
   </select>
   <br><br>
   <h4>I believe political views should be kept private.</h4>
-   <select name="Q8">
+   <select id="Q8">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -113,7 +114,7 @@
   </select>
   <br><br>
   <h4>you enjoy having a large circle of acquiantances.</h4>
-   <select name="Q9">
+   <select id="Q9">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -122,7 +123,7 @@
   </select>
   <br><br>
   <h4> You think that everything in the world is relative.</h4>
-   <select name="Q10">
+   <select id="Q10">
     <option value="1">1 (strongly disagree)</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -130,20 +131,78 @@
     <option value="5">5 (strongly agree)</option>
   </select>
   <br><br>
-  <button type="submit" class="btn btn-primary submit">Submit</button>
+  <button type="submit" id="submit" class="btn btn-primary submit">Submit</button>
 </form>
+ 
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Best Match</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modbod">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
          
 
-</body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/app.js"></script>
-var object = {
-        name: $("#name").val(),
-        photo: ...,
-        scores: [
-        $("#Q1".val(), ${})]
+
+    
+ <script> 
+// function and for loop to collect the scores the user enters into the answer field for the questions.
+    var collect=function(){ collated=[];    
+      for (i=1; i<11; i++){
+        var score= $(`#Q${i}`).val();
+        collated.push(score) 
+        }
+      return collated
+    };
+    // Constructor to build the new data profile for each user.
+    var Person = function(){
+      this.name= $("#name").val();
+      this.photo= $("#photo").val();
+      this.scores= collect(); 
     }
-    $.post("/api/friends", object); 
+    //On click function running the constructor, preventing the default.
+    $("#submit").on("click", function(){
+      event.preventDefault();
+      var person= new Person();
+       $.post("/api/friends", person, function(res) {
+          // Variable creating the format for saving thes cores adding them all together and then comparing them to the other scores in api/friends.
+          var match = [50, "", ""];
+          for(var i = 0; i < res.length - 1; i ++) {
+            var sum = 0;
+
+            for(var j = 0; j < res[i].scores.length; j ++) {
+              sum += Math.abs(res[i].scores[j] - person.scores[j]);
+            }
+            //if statement to get the closest match to the new users inputs based on score and to return not only their score, but their name and photo url.
+
+            if(sum < match[0]) {
+              match[0] = sum;
+              match[1] = res[i].name;
+              match[2] = res[i].photo;
+            }
+          
+          }
+          var Temp = $("<h2>").html(match[1]);
+          $(Temp).append($("<img>").attr("src", match[2]).attr("style", "max-width: 400px;"));
+          $("#modbod").append(Temp);
+          $('#myModal').modal("show");
+       });
+    });
    
+    
+            
+    
+</script>
+</body>
 </html>
 
